@@ -1,0 +1,509 @@
+#include <stdio.h>
+#include <math.h>
+#include <string.h>
+
+/* 1
+int main(){
+    char name[20];
+    int age;
+
+    printf("whats your age and name ? ");
+
+    scanf("%d %s", &age, name);
+    
+    printf("Sua idade: %d e seu nome: %s\n", age, name);
+
+    return 0;
+}
+
+
+
+   2
+int main(){
+  int A = sqrt(9);
+
+  printf("\n%d", A);
+
+  return 0;
+}
+
+
+    3
+int main (){
+    const double PI = 3.14159;
+    double raio;
+    double circun;
+    double area;
+
+    printf("qual o raio ? ");
+    scanf("%lf", &raio);
+    if (raio >= 10){
+        printf("ok esta dentro do aceitavel");
+    } 
+    else if (raio < 10) {
+        printf("nao esta dentro do aceitavel");
+
+    } else{
+        printf("ok, continue");
+    }
+
+    circun = 2 * PI * raio;
+    area = PI * raio * raio;
+
+    printf("\n A cincunferencia vai ser: %lf", circun);
+    printf("\n A area vai ser: %lf", area);
+    return 0;
+
+}
+
+
+   4
+int main (){
+    char men;
+    double v1;
+    double v2;
+    double result;
+
+    printf("digite um operador( +, -, *): ");
+    scanf("%c", &men);
+
+    printf("digite o valor 1: ");
+    scanf("%lf", &v1);
+
+    printf("digite o valor 2: ");
+    scanf("%lf", &v2);
+
+    switch(men){
+        case '+':
+           result = v1 + v2;
+           printf("o valor da soma vai ser: %lf", result);
+        break;
+        case '-':
+           result = v1 - v2;
+           printf("o valor da sub vai ser: %lf", result);
+        break;
+        case '*':
+           result = v1 * v2;
+           printf("o valor da multplicacao vai ser: %lf", result);
+        break;
+    }
+
+return 0;
+}
+
+
+
+
+#define MAX_TAMANHO 20
+
+void fudido(char nome[]) {
+
+    if (strcmp(nome, "mint") == 0)
+        printf("Voce esta na merda mais completa\n");
+    else if (strcmp(nome, "edi") == 0)
+        printf("Nao sabe explicar o negocio direito\n");
+    else if (strcmp(nome, "guil") == 0)
+        printf("Talvez voce consiga\n");
+    else
+        printf("Nome do professor nao reconhecido\n");
+}
+
+void calculadora(char op, double val1, double val2){
+    double result;
+
+    switch(op){
+        case '+':
+           result = val1 + val2;
+           printf("o valor da soma vai ser: %lf", result);
+        break;
+        case '-':
+           result = val1 - val2;
+           printf("o valor da sub vai ser: %lf", result);
+        break;
+        case '*':
+           result = val1 * val2;
+           printf("o valor da multplicacao vai ser: %lf", result);
+        break;
+    }
+
+}
+
+int main() {
+    char nome[MAX_TAMANHO];
+    int escolha;
+    char op;
+    double val1;
+    double val2;
+
+
+    printf("escolha 1 para calculadora ou 2 para analise de professor: ");
+    scanf("%d", &escolha);
+
+    if (escolha == 1){
+
+        for (int i = 1; i <=3; i++){ // for
+
+        printf("\nescolha um operando? (+, -, *): ");
+        scanf(" %c", &op);
+
+        printf("escolha o valor 1: ");
+        scanf("%d", &val1);
+
+        printf("escolha o valor 2: ");
+        scanf("%d", &val2);
+
+        calculadora(op, val1, val2); // função
+
+        }
+
+    } else if ( escolha == 2) {
+        printf("Qual é o nome do professor? ");
+        scanf("%s", nome);
+        fudido(nome);
+
+    } else {
+        printf("escolha invalida");
+    }
+    return 0;
+}
+
+       5 
+#define MAX_TAMANHO 20
+
+void fudido(char nome[]) {
+
+    if (strcmp(nome, "mint") == 0) // pegar char ao inves de outra coisa
+        printf("Voce esta na merda mais completa\n");
+    else if (strcmp(nome, "edi") == 0)
+        printf("Nao sabe explicar o negocio direito\n");
+    else if (strcmp(nome, "guil") == 0)
+        printf("Talvez voce consiga\n");
+    else
+        printf("Nome do professor nao reconhecido\n");
+}
+
+void calculadora(char op, int val1, int val2){ // função
+    int result;
+
+    switch(op){
+        case '+':
+           result = val1 + val2;
+           printf("o valor da soma vai ser: %d", result);
+        break;
+        case '-':
+           result = val1 - val2;
+           printf("o valor da sub vai ser: %d", result);
+        break;
+        case '*':
+           result = val1 * val2;
+           printf("o valor da multplicacao vai ser: %d", result);
+        break;
+    }
+
+}
+
+void info(int idade, char sexo, char nome[]) {
+
+    while(1) { // while
+        printf("Qual é o seu nome? ");
+        scanf("%s", nome);
+        if (nome[0] != '\0') {
+            break;
+        } else {
+            printf("Nome inválido. Por favor, insira novamente.\n");
+        }
+    }
+
+    while(1) {
+        printf("Qual é a sua idade? ");
+        scanf("%d", &idade);
+        if (idade > 0) {
+            break;
+        } else {
+            printf("Idade inválida. Por favor, insira novamente.\n");
+        }
+    }
+
+    while(1) {
+        printf("Qual é o seu sexo? (M/F) ");
+        scanf(" %c", &sexo);
+        if (sexo == 'M' || sexo == 'F') {
+            break;
+        } else {
+            printf("Sexo inválido. Por favor, insira novamente.\n");
+        }
+    }
+
+    // Exibir os dados inseridos
+    printf("Nome: %s\n", nome);
+    printf("Idade: %d\n", idade);
+    printf("Sexo: %c\n", sexo);
+}
+
+int main() {
+    char nome[MAX_TAMANHO]; // variaveis
+    int escolha;
+    char op;
+    int val1;
+    int val2;
+    char sexo = '\0';
+    int idade = 0;
+
+   
+    for (int i = 1; i <=3; i++){ // for
+
+    printf("\nescolha 1 para calculadora ou 2 para analise de professor ou 3 para guardar seu nome: ");
+    scanf("%d", &escolha);
+
+    if (escolha == 1){ // switch
+
+        printf("\nescolha um operando? (+, -, *): ");
+        scanf(" %c", &op);
+
+        printf("escolha o valor 1: ");
+        scanf("%d", &val1);
+
+        printf("escolha o valor 2: ");
+        scanf("%d", &val2);
+
+        calculadora(op, val1, val2); // função
+
+
+    } else if ( escolha == 2) { // if e else
+        
+        printf("Qual é o nome do professor? ");
+        scanf("%s", nome);
+        fudido(nome);
+
+    } else if (escolha == 3) {
+        info(idade, sexo, nome);
+    } else {
+        printf("escolha invalida");
+    }
+   } // fim do for
+    return 0;
+}
+
+
+
+      6
+int main() {
+    char resposta[100];
+    bool continuar = true;
+    printf("Bem-vindo ao questionário sobre O Senhor dos Anéis!\n");
+    printf("Vamos começar!\n");
+
+    // Enquanto a variável booleana "continuar" for verdadeira, o loop vai continuar
+    while (continuar) {
+        printf("\nQuem é o autor da série de livros O Senhor dos Anéis? ");
+        scanf("%s", resposta);
+
+        if (strcmp(resposta, "J.R.R. Tolkien") == 0) {
+            printf("Resposta correta! Parabéns!\n");
+            continuar = false;
+        } else {
+            printf("Resposta incorreta. Tente novamente!\n");
+        }
+    }
+
+    printf("\nFim do questionário. Obrigado por participar!\n");
+
+    return 0;
+}
+
+
+
+ 7 
+
+
+ #include <time.h>
+
+// Definição da estrutura para representar um personagem
+struct Personagem {
+    char nome[50];
+    int vida;
+    int ataque;
+};
+
+
+void ataque(struct Personagem *atacante, struct Personagem *alvo) {
+
+    // Gera um valor de dano aleatório entre 1 e o valor do ataque do atacante
+    int dano = rand() % atacante->ataque + 1;
+
+    printf("%s ataca %s e causa %d de dano!\n", atacante->nome, alvo->nome, dano); // s é gandalf ou frod e d é ataque
+
+    // Reduz a vida do alvo pelo valor do dano
+    alvo->vida -= dano;
+
+    // Verifica se o alvo morreu
+    if (alvo->vida <= 0) {
+        printf("%s foi derrotado!\n", alvo->nome);
+    } else {
+        printf("%s agora tem %d de vida.\n", alvo->nome, alvo->vida);
+    }
+}
+
+int main() {
+    // Inicialização do gerador de números aleatórios
+    srand(time(NULL));
+
+    // Criação dos personagens
+    struct Personagem frodo = {"Frodo Bolseiro", 100, 10};
+    struct Personagem gandalf = {"Gandalf, o Cinzento", 150, 15};
+
+    printf("Bem-vindo ao mini RPG do Senhor dos Anéis!\n");
+    printf("Prepare-se para uma batalha épica!\n\n");
+
+    // Loop de batalha
+    while (frodo.vida > 0 && gandalf.vida > 0) {
+        // Frodo ataca Gandalf
+        ataque(&frodo, &gandalf);
+        if (gandalf.vida <= 0) break; // Verifica se Gandalf morreu antes de atacar de volta
+
+        // Gandalf ataca Frodo
+        ataque(&gandalf, &frodo);
+    }
+
+    quem venceu
+    if (frodo.vida > 0) {
+        printf("\nFrodo venceu a batalha!\n");
+    } else {
+        printf("\nGandalf venceu a batalha!\n");
+    }
+
+    return 0;
+}
+
+8
+
+#define MAX_CONTATOS 100
+
+// Definição da estrutura para representar um contato
+struct Contato {
+    char nome[50];
+    char telefone[20];
+};
+
+// Função para adicionar um contato à lista telefônica
+void adicionarContato(struct Contato lista[], int *totalContatos) {
+    if (*totalContatos >= MAX_CONTATOS) {
+        printf("A lista telefônica está cheia!\n");
+        return;
+    }
+
+    printf("Digite o nome do contato: ");
+    scanf("%s", lista[*totalContatos].nome);
+
+    printf("Digite o telefone do contato: ");
+    scanf("%s", lista[*totalContatos].telefone);
+
+    (*totalContatos)++; // Incrementa o número total de contatos
+    printf("Contato adicionado com sucesso!\n");
+}
+
+// Função para exibir todos os contatos da lista telefônica
+void listarContatos(struct Contato lista[], int totalContatos) {
+    printf("\nLista Telefônica:\n");
+    for (int i = 0; i < totalContatos; i++) {
+        printf("%s: %s\n", lista[i].nome, lista[i].telefone);
+    }
+    printf("\n");
+}
+
+int main() {
+    struct Contato listaTelefonica[MAX_CONTATOS];
+    int totalContatos = 0;
+    int opcao;
+
+    printf("Bem-vindo à Lista Telefônica!\n");
+
+    do {
+        printf("\nMenu:\n");
+        printf("1. Adicionar contato\n");
+        printf("2. Listar contatos\n");
+        printf("3. Sair\n");
+        printf("Escolha uma opção: ");
+        scanf("%d", &opcao);
+
+        switch (opcao) {
+            case 1:
+                adicionarContato(listaTelefonica, &totalContatos);
+                break;
+            case 2:
+                listarContatos(listaTelefonica, totalContatos);
+                break;
+            case 3:
+                printf("Saindo...\n");
+                break;
+            default:
+                printf("Opção inválida!\n");
+                break;
+        }
+    } while (opcao != 3);
+
+    return 0;
+}
+
+9
+
+struct Aluno {
+    char nome[50];
+    int idade;
+    float nota;
+};
+
+int main() {
+    // Criando um array de alunos
+    struct Aluno turma[3] = {
+        {"João", 20, 8.5},
+        {"Maria", 21, 9.0},
+        {"Pedro", 19, 7.8}
+    };
+
+    // Imprimindo as informações de cada aluno usando um loop for
+    printf("Informações dos alunos:\n");
+    for (int i = 0; i < 3; i++) {
+        printf("Aluno %d:\n", i + 1);
+        printf("Nome: %s\n", turma[i].nome);
+        printf("Idade: %d\n", turma[i].idade);
+        printf("Nota: %.2f\n", turma[i].nota);
+        printf("\n");
+    }
+
+    return 0;
+}
+
+10
+
+
+#include <stdio.h>
+
+// Protótipo da função escrita em assembly
+extern int soma_asm(int num1, int num2);
+
+int main() {
+    int num1 = 10;
+    int num2 = 20;
+    int resultado;
+
+    // Chama a função escrita em assembly para realizar a soma
+    resultado = soma_asm(num1, num2);
+
+    // Exibe o resultado
+    printf("A soma de %d e %d é %d\n", num1, num2, resultado);
+
+    return 0;
+}
+
+// assembly 
+
+.global soma_asm
+
+.text
+soma_asm:
+    movq %rdi, %rax  # Move o primeiro argumento para o registrador RAX
+    addq %rsi, %rax  # Adiciona o segundo argumento ao registrador RAX
+    retq             # Retorna o resultado
+
+*/
